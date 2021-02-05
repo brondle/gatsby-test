@@ -1,11 +1,17 @@
 $margin : 12px;
 
-html, body, #___gatsby, #gatsby-focus-wrapper {
+html, body{
   font-family: "Messina Sans",sans-serif;
   background-color: #f5f5f5;
   min-height:100vh;
   min-width:100vw;
   padding: 0;
+  margin: 0;
+}
+#___gatsby {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
 }
 
 h1 {
@@ -30,15 +36,17 @@ p {
 }
 
 iframe {
-  top: 0;
-  margin-top: -$margin/2;
+  margin-top: $margin/2;
   width: 86vw;
   height: 82vh;
+  &.large {
+    height: 94vh;
+    width: 92vw;
+  }
 }
 
 .header {
   width: 100vw;
-  max-height: 12vh;
   margin: $margin auto;
   padding: 0 0 $margin;
   border-bottom: 1px solid #ebebeb;
@@ -54,10 +62,10 @@ iframe {
     outline: none;
   }
   &.closed {
-  display: none;
+  // option to just hide itdisplay: none;
   width: 40px;
   height: 0;
-  padding-top: 40px;
+  padding-top: 30px;
   position: absolute;
   border: 1px solid #ebebeb;
   margin: 0;
@@ -82,7 +90,7 @@ iframe {
 
     }
     &.show-header {
-    display:none;
+//option to just hide    display:none;
     background-image: -webkit-repeating-linear-gradient(#ccc, #ccc 2px, rgba(245, 245, 245, 0.65) 2px, rgba(245, 245, 245, 0.65) 4px);
     background-image: repeating-linear-gradient(#ccc, #ccc 2px, rgba(245, 245, 245, 0.65) 2px, #fff 4px);
     }
@@ -91,9 +99,10 @@ iframe {
 
 .work-header {
   display: grid;
+  max-height: 8vh;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  margin-bottom: 0;
+  margin: 0 auto;
   * {
     display: flex;
     align-items: center;
@@ -109,7 +118,10 @@ iframe {
     align-self: center;
     flex-flow: column nowrap;
     * {
-      margin: $margin/2 auto;
+      margin: $margin/4 auto;
+    }
+    a {
+      color: black;
     }
   }
   .next {
@@ -132,6 +144,16 @@ iframe {
 .about {
   width: 50vw;
   padding: $margin*4 $margin*8;
+  ul {
+    list-style-type: none;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    br {
+      margin: $margin/4 auto;
+    }
+  }
 }
 .menu {
   .menu-item {
@@ -166,4 +188,17 @@ iframe {
 
 }
 
+@media only screen and (max-width: 950px) {
+  .header {
+    h1, h1 a {
+      font-size: 20px;
+    }
+    h2  {
+      font-size: 14px;
+    }
+    p, a {
+      font-size: 14px;
+    }
+  }
 
+}
