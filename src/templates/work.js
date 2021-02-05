@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import Layout from "../components/layout.js"
 import ArtistData from "../../static/data/work_info.json"
 
@@ -18,8 +18,12 @@ const Work = props => {
   let next = index + 1
   console.log('prev', prev)
   console.log('artist: ', workInfo)
+  const [headerOpen, setOpen] = useState(true)
+  function handleChange(val) {
+    setOpen(val)
+  }
   return (
-    <div className="work"><Layout header= { workInfo.name } previous={prev >= 0 ? `/works/${ArtistData.works[prev].url}/view` : null } next={next < ArtistData.works.length ? `/works/${ArtistData.works[next].url}/view` : null} headerType='work-header' subHead = { workInfo.artist }></Layout> <iframe style={{width:"100%",height:"100vh"}} srcDoc={html}></iframe></div>
+    <div className="work"><Layout header= { workInfo.name } previous={prev >= 0 ? `/works/${ArtistData.works[prev].url}/view.html` : null } next={next < ArtistData.works.length ? `/works/${ArtistData.works[next].url}/view.html` : null} headerState = { headerOpen } onClick = {handleChange} headerType='work-header' subHead = { workInfo.artist }></Layout> <iframe  srcDoc={html}></iframe></div>
   )
 }
 export default Work

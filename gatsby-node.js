@@ -40,7 +40,7 @@ exports.createPages = async ({graphql, actions, reporter}) =>  {
   result.data.allFile.edges.forEach(async ({ node }) => {
     const content = await loadNodeContent(node)
     const url =  node.relativePath.split('/')[0]
-    const path = 'works/' + url  +'/view'
+    const path = 'works/' + url  +'/view.html'
     createPage({
       path,
       component: workTemplate,

@@ -31,11 +31,16 @@ p {
 
 iframe {
   top: 0;
+  margin-top: -$margin/2;
+  width: 86vw;
+  height: 82vh;
 }
 
 .header {
   width: 100vw;
+  max-height: 12vh;
   margin: $margin auto;
+  padding: 0 0 $margin;
   border-bottom: 1px solid #ebebeb;
   background-color: rgba(245, 245, 245, 0.65);
   text-align: center;
@@ -88,6 +93,7 @@ iframe {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  margin-bottom: 0;
   * {
     display: flex;
     align-items: center;
